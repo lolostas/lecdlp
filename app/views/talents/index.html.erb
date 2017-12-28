@@ -1,0 +1,40 @@
+<% content_for(:title_tag) do %>
+  Results talents
+<% end %>
+
+
+<div class="container search_bar">
+  <form action="<%= talents_path %>" class="flex-form navbar-left" role="search">
+          <input type="text" name="query" class="form-control right-margin" placeholder="Search another talent" value=<%= "#{@query}" %>>
+          <select type="text" name="category_id" class="form-control right-margin" value=<%= "#{@category}" %> >
+            <option value="">All talent categories</option>
+            <% @categories.each do |category| %>
+              <option value="<%= category.id %>" <%= category.id == @category&.id ? "selected" : "" %>><%= category.name %></option>
+            <% end %>
+          </select>
+          <button type="submit" class="btn btn-primary btn">Let's go!</button>
+  </form>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @talents.each do |talent| %>
+      <div class="col-xs-12 col-sm-4 center">
+        <div class="card text-center">
+          <div class="card-header">
+            <h3><%= talent.talent_proposed.capitalize %></h3>
+            <p><%= talent.category.name.capitalize %> </p>
+          </div>
+          <div class="card-avatar-large">
+            <%= cl_image_tag image_path_for(talent.user), width: 150, heigth:150, crop: :crop, gravity: :face, class: "avatar-large" %>
+          </div>
+          <div class="card-description text-center">
+            <h4><%= icon("user-o") %> <%= talent.user.first_name %></h4>
+            <h6><%= icon("map-marker") %> <%= talent.user.address %></h6>
+          </div>
+          <%= link_to "See more", talent_path(talent), class: "btn btn-primary see_more" %>
+        </div>
+      </div>
+    <% end -%>
+  </div>
+</div>

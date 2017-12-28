@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="1 cafe 1 talent - Meet a Talent">
+    <meta property="og:image" content="<%= image_path 'coffee.jpg' %>">
+    <meta property="og:description" content="Passionate people sharing
+          their experience over a drink.">
+    <meta property="og:site_name" content="1 cafe 1 talent"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= favicon_link_tag 'coffee.png' %>
+    <title>1CAFE1TALENT</title>
+    <title><%= yield(:title_tag).blank? ? "1CAFE1TALENT" : yield(:title_tag) %></title>
+
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+  </head>
+  <body class="<%= params[:controller] %> <%= params[:action] %>">
+    <div class="main-body">
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+    </div>
+    <%= render 'shared/footer' %>
+    <%= javascript_include_tag 'application' %>
+    <%= cloudinary_js_config %>
+  </body>
+</html>

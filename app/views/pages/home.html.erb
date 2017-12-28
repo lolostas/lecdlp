@@ -1,0 +1,98 @@
+<body>
+  <div id="banner">
+    <div class="banner-content">
+      <div class=col-xs-12>
+        <h1>Meet a Talent.</h1>
+        <h2>Passionate people sharing</h2>
+        <h2>their experience over a drink.</h2>
+        <br>
+        <form action="<%= talents_path %>" class="flex-form navbar-left" role="search">
+          <input type="text" name="query" class="form-control" placeholder="Search for a talent">
+          <select type="text" name="category_id" class="form-control" placeholder="Select a category">
+            <option value="">All categories</option>
+            <% @categories.each do |category| %>
+              <option value="<%= category.id %>"><%= category.name %></option>
+            <% end %>
+          </select>
+          <button type="submit" class="btn btn-primary btn-lg" id="search-button">Let's go!</button>
+        </form>
+      </div>
+    </div>
+  </div>
+<BR>
+<BR>
+<BR>
+    <div class="wrapper-features">
+      <div class="container">
+      <h3 class="text-center">Skills are hard to get, let's help each other out</h3>
+      <BR>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="feature">
+             <!--  <div class="feature-img" style="background-image: url('<%= image_path("loupe.png") %>');"></div> -->
+              <i class="fa fa-search fa-4x" aria-hidden="true"></i>
+              <h3 class="steps">Search for a skill you want to learn</h3>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="feature">
+       <!--        <div class="feature-img" style="background-image: url('<%= image_path("discussion.png") %>');" width="100px"></div> -->
+          <i class="fa fa-comments fa-4x" aria-hidden="true"></i>
+              <h3 class="steps">Get in touch with someone full of passion</h3>
+            </div>
+          </div>
+
+         <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="feature">
+           <!--  <div class="feature-img" style="background-image: url('<%= image_path("fixrdv.png") %>');"></div> -->
+           <i class="fa fa-coffee fa-4x" aria-hidden="true"></i>
+              <h3 class="steps">Meet over a drink & have a great moment</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<BR>
+<BR>
+<BR>
+
+    <div class="wrapper-cards">
+      <div class="container">
+
+      <h3 class="text-center">All talents one coffee away</h3>
+      <BR>
+        <div class="row">
+          <% @categories.each do |category| %>
+            <div class="col-xs-12 col-sm-4">
+              <div class="card home-page" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "#{category.name.downcase}.jpg" %>');">
+                <div class="card-description">
+                  <h2><%= category.name %></h2>
+                </div>
+                <%= link_to '', talents_path(category_id: category.id), class: "card-link" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</body>
+
+<BR>
+<div class="container">
+  <h3 class="text-center">Relax with our coffee selection</h3>
+  <BR>
+  <BR>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <iframe width=100% height="260" src="https://www.youtube.com/embed/AXZX93zZpmc" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <iframe width=100% height="260" src="https://www.youtube.com/embed/Qr5AIKRPIHo" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+</div>
+
+<BR>
+<BR>
+<BR>

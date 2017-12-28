@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row center">
+    <h3 class="post center">Share your talent</h3>
+    <div class="new_talent">
+      <div class="col-md-6 col-md-offset-3">
+      <BR>
+        <%= simple_form_for(@talent) do |f| %>
+        <%= f.association :category, label: 'Select the category matching with your passion', class: 'section' %>
+        <%= f.input :talent_proposed, label:'What\'s your talent?', placeholder: 'Piano' %>
+        <%= f.input :description, label: 'Introduce yourself and describe your passion to the community', placeholder: 'Hello, I have been playing piano for 15 years and would be glad to discuss about it or even give some lessons. I\'m looking forward to meeting you soon ! Cheers ' %>
+        <%= f.input :lesson, as: :boolean, placeholder: 'true or false', label: 'Would you like to give lessons?' %>
+      <BR>
+        <%= f.button :submit, value:"Join us", class: 'btn btn-primary btn-lg' %>
+      <% end %>
+      <BR>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

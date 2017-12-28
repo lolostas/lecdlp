@@ -1,0 +1,132 @@
+.card {
+  border: 1px solid #dadada;
+  background-color: white;
+  background-size: cover;
+  position: relative;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 5px;
+
+  h3 {
+    font-weight: bold;
+    color: $main;
+  }
+
+  h6 {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .btn-primary {
+    height: 40px;
+    width: 100%;
+    background-color: white;
+    color: $main;
+  }
+
+  .btn-primary:hover {
+    background-color: $main;
+    color: white;
+    font-weight: bold;
+  }
+
+  .card-image {
+    height: 100px;
+  }
+
+  .card-description{
+    color: lighten($gray, 20%);
+    font-size: 0.8em;
+  }
+
+  .card-description i {
+    color: $main;
+  }
+
+  .see_more {
+    display: block;
+  }
+
+  i.fa-check {
+    color: $green;
+  }
+
+  i.fa-times {
+    color: $red;
+  }
+
+}
+
+.card.show_height {
+  min-height: 470px;
+}
+
+.edit_talent{
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+}
+.card-user .edit_talent{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 40px;
+  border-radius: 50%;
+}
+.card-category .edit_talent{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.card-description .edit_talent{
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.card-description .edit_talent h2 {
+  font-size: 24px;
+}
+.card-description .edit_talent p {
+  font-size: 14px;
+  opacity: 0.7;
+  font-weight: lighter;
+}
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+.card-link:hover .edit_talent {
+  opacity: 0.1;
+}
+
+.edit_avatar_talent {
+  position: absolute;
+  top: 25px;
+  right: 50px;
+}
+
+i.fa.fa-coffee.fa-fw {
+  color: dodgerblue;
+}
+
+i.fa.fa-facebook {
+  color: dodgerblue;
+}
+
+i.fa.fa-linkedin {
+  color: dodgerblue;
+}
+
+i.fa.fa-coffee.fa-3x.fa-fw {
+  color: white;
+}

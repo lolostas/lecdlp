@@ -1,0 +1,39 @@
+<% content_for(:title_tag) do %>
+  Conversations
+<% end %>
+
+<% if @conversations.any? %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h3 class="text-center">All ongoing conversations with talents</h3>
+        <div class="message">
+          <% @conversations.each do |conversation| %>
+            <div class="sender-avatar">
+              <%= cl_image_tag image_path_for(destinator_for(conversation)), width: 75, heigth: 75, crop: :fill, class: "avatar" %>
+              <div class="sender-conversation">
+                <p><%= destinator_for(conversation).name %></p>
+                <p><%= link_to conversation.subject, conversation_path(conversation) %></p>
+              </div>
+              <div class="unread-messages">
+                <span class="badge"> <%= conversation.receipts_for(current_user).inbox.is_unread.count %></span>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <BR>
+     </div>
+    </div>
+  </div>
+<% else %>
+  <br/>
+    <center><br/><h1>You have no conversation</h1><br/>
+      <%= image_tag "message.jpg", size: "450x450" %>
+<% end %>
+<br>
+<br>
+  <div class=text-center>
+    <%= link_to "Find another talent ! ", talents_path, class: 'btn btn-primary btn-lg' %>
+  </div>
+
+

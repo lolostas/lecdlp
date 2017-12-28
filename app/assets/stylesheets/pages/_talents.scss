@@ -1,0 +1,101 @@
+ #conversation_body {
+  height: 200px;
+}
+
+.conversation .btn.btn-primary {
+  width: 100%;
+}
+
+.talents.index {
+  .card-avatar {
+    height: 150px;
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.profiles.show {
+  .profile-header {
+    border: 1px solid #dadada;
+    background-color: white;
+    background-size: cover;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.form-control #conversation_Message {
+    margin: 0px -1px 0px 0px;
+    width: 523px;
+    height: 199px;
+}
+
+.form-control.text.required {
+    margin: 0px -5px 0px 0px;
+    height: 206px;
+  }
+
+  textarea#talent-desciption.form-control.text.required {
+    width: 100%;
+  }
+
+.new_talent {
+  font-weight: thiner;
+}
+
+label.control-label.string.required {
+  font-weight: normal;
+}
+
+label.control-label.text.required {
+  font-weight: normal;
+}
+
+label.control-label.select.optional {
+  font-weight: normal;
+}
+
+h3.post {
+  font-weight: bold;
+  text-align: center;
+}
+
+.row.center {
+  position: center;
+}
+
+.talent-desciption {
+  font-size: 18px;
+}
+
+.titre-discussion {
+  font-weight: bold;
+}
+
+.user_info {
+  display: flex;
+  justify-content: space-around;
+  .card-description {
+    margin-top: 2em;
+    padding-right: 2em;
+  }
+  .avatar {
+    margin-left: 2em;
+  }
+}
+
+p#name {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+form.flex-form.navbar-left {
+  padding-top: 1.8em;
+  padding-bottom: 1.1em;
+}
+
+

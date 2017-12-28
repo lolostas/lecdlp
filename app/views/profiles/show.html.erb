@@ -1,0 +1,40 @@
+<% content_for(:title_tag) do %>
+  Your profile Talent <%= current_user.name.capitalize %>
+<% end %>
+
+<div class="container">
+  <div class="row">
+      <div class="col-xs-12">
+        <div class="profile-header">
+          <div>
+            <% if current_user.address.present?  %>
+              <h3><%= icon("user-o") %> <%= current_user.name.capitalize %> </h3>
+              <h5><%= icon("map-marker") %> <%= current_user.address %> </h5>
+            <% else %>
+              <h3><%= icon("user-o") %> <%= current_user.name.capitalize %> </h3>
+              <h5><%= link_to 'Add your city', edit_user_registration_path(@user) %></h5>
+            <% end %>
+          </div>
+          <%= cl_image_tag image_path_for(current_user), width: 80, heigth:80, crop: :fill, class: "avatar" %>
+        </div>
+      </div>
+
+      <% @talents.each do |talent| %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card">
+            <div class="card-header">
+              <h3><%= talent.talent_proposed.capitalize %></h3>
+              <p><%= talent.category.name.capitalize %> </p>
+              <p><%= talent.description %> </p>
+            </div>
+
+            <div class="card-description">
+            </div>
+            <%= link_to "See my talent", talent_path(talent), class: "btn btn-primary see_more" %>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,48 @@
+<% content_for(:title_tag) do %>
+  Talent <%= @talent.talent_proposed.capitalize %>
+<% end %>
+<div class="container">
+  <div class="row">
+    <h3 class="text-center"><%= @talent.user.name %>'s talent</h3>
+    <div class="col-xs-12 col-sm-6">
+      <div class="m-profile material-shadow-1">
+        <div class="card show_height">
+          <div class="card-header text-center">
+            <h3><%= @talent.talent_proposed.capitalize %></h3>
+            <p><%= @talent.category.name.capitalize %> </p>
+          </div>
+          <br>
+          <div class="user_info">
+            <div class="card-avatar-large">
+              <%= cl_image_tag image_path_for(@talent.user), width: 150, heigth:150, crop: :fill, class: "avatar-large" %>
+            </div>
+            <div class="card-description">
+              <p id="name"> <%= @talent.user.name %></p>
+              <p><%= icon("map-marker") %> <%= @talent.user.address %></p>
+              <p><%= icon("book") %> Teach :  <%= @talent.lesson ? icon("check") : icon("times") %></p>
+            </div>
+          </div>
+          <BR>
+          <p class="talent-desciption"><%= icon("star") %> <%= @talent.description %></p>
+          <% if @talent.user == current_user %>
+            <p><%=  icon("pencil")  %> <%= link_to 'Edit', edit_talent_path(@talent) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-xs-12 col-sm-6">
+      <div class="card show_height">
+        <h3>Start the conversation</h3>
+          <%= simple_form_for(:conversation, url: :conversations) do |f| %>
+            <%= f.input :subject, label: 'Purpose of the discussion' %>
+            <%= f.input :user_id, input_html: { value: @recipient.id }, as: :hidden %>
+            <%= f.input :body, as: :text, label: 'Your message' %>
+            <%= f.button :submit, value: "Contact #{@recipient.first_name}" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="navbar-wagon">
+  <!-- Logo -->
+
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <i class="fa fa-coffee fa-3x fa-fw"></i>
+
+      <h2>1Café1Talent</h2>
+    <% end %>
+
+<!--   <div class="logotitle">
+    <h2>1CAFÉ1TALENT</h2>
+  </div> -->
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <% if user_signed_in? %>
+
+      <!-- Links when logged in -->
+
+      <div>
+      <%= link_to "Post a Talent", new_talent_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to conversations_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+        Messages <span class="badge"><%= current_user.receipts.inbox.is_unread.count %></span>
+      <% end %>
+      </div>
+      <!-- Avatar with dropdown menu -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <%= image_tag image_path_for(current_user), class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to profile_path do %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Your Profile") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to root_path do %>
+                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <% else %>
+      <!-- Login link (when logged out) -->
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% end %>
+  </div>
+
+  <!-- Dropdown list appearing on mobile only -->
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <% if user_signed_in? %>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><a
+          <%= link_to "Home", root_path %>
+          </a></li>
+          <li><a
+          <%= link_to "Post a talent",  new_talent_path%>
+          </a></li>
+          <li><a
+          <%= link_to "Messages", conversations_path %>
+          </a></li>
+          <li><a
+          <%= link_to "Your profile", profile_path %>
+          </a></li>
+          <li><a
+          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+          </a></li>
+        </ul>
+      <% else %>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><a
+            <%= link_to "Sign in", new_user_session_path %>
+          </a></li>
+      <% end %>
+    </div>
+  </div>
+</div>
+
